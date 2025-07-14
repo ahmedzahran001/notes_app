@@ -13,7 +13,14 @@ class AddNoteBottomSheet extends StatelessWidget {
           SizedBox(
             height: 40,
           ),
-          CustomTextField(),
+          CustomTextField(
+            hint: 'Gym',
+          ),
+          SizedBox(height: 16),
+          CustomTextField(
+            hint: 'push pull leg',
+            maxLines: 5,
+          ),
         ],
       ),
     );
