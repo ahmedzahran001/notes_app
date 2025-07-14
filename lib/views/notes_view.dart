@@ -12,11 +12,12 @@ class NotesView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
+            backgroundColor: Color(0xff141414),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadiusGeometry.circular(20),
+              borderRadius: BorderRadiusGeometry.circular(16),
             ),
             context: context,
-            builder: (context) { 
+            builder: (context) {
               return const AddNoteBottomSheet();
             },
           );
