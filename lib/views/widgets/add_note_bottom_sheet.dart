@@ -10,19 +10,38 @@ class AddNoteBottomSheet extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         children: [
-          SizedBox(
-            height: 40,
-          ),
-          CustomTextField(
-            hint: 'Gym',
-          ),
           SizedBox(height: 16),
+          Container(
+            width: 108,
+            height: 8,
+            clipBehavior: Clip.antiAlias,
+            decoration: ShapeDecoration(
+              color: const Color(0xFFFFEFD7),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+          ),
+          SizedBox(height: 32),
           CustomTextField(
-            hint: 'push pull leg',
+            hint: 'Title...',
+          ),
+          SizedBox(height: 24),
+          CustomTextField(
+            hint: 'Content...',
             maxLines: 5,
           ),
         ],
       ),
     );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  const CustomButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

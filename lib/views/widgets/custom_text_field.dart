@@ -8,13 +8,12 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       maxLines: maxLines,
-      cursorColor: Color(0xFFD79443),
+      cursorColor: Colors.white,
       decoration: InputDecoration(
         hintText: hint,
         hintStyle: const TextStyle(color: Colors.white),
-        border: buildBorde(),
         enabledBorder: buildBorde(),
-        focusedBorder: buildBorde(Color(0xFFD79443)),
+        focusedBorder: buildBorde(Color(0xFFFFEFD7)),
       ),
     );
   }
@@ -22,7 +21,7 @@ class CustomTextField extends StatelessWidget {
   OutlineInputBorder buildBorde([color]) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(16),
-      borderSide: BorderSide(color: color ?? Color(0xFF7F2A34)),
+      borderSide: BorderSide(color: color ?? Color(0xFFFFEFD7)),
     );
   }
 }
