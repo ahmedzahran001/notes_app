@@ -5,7 +5,7 @@ class CustomIcon extends StatelessWidget {
   final IconData icon;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 24,
       width: 24,
       // decoration: BoxDecoration(
