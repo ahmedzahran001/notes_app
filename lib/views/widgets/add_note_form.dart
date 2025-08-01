@@ -1,4 +1,4 @@
-import 'package:NoteApp/cubits/add_note_cubit.dart';
+import 'package:NoteApp/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:NoteApp/models/note_model.dart';
 import 'package:NoteApp/views/widgets/custom_button.dart';
 import 'package:NoteApp/views/widgets/custom_text_field.dart';

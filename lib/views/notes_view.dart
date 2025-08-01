@@ -12,11 +12,12 @@ class NotesView extends StatelessWidget {
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(right: 8, bottom: 13),
         child: SizedBox(
-          height: 64,
-          width: 64,
+          height: 58,
+          width: 58,
           child: FloatingActionButton(
             onPressed: () {
               showModalBottomSheet(
+                isScrollControlled: true,
                 backgroundColor: Color(0xff141414),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadiusGeometry.circular(20),
