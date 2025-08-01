@@ -1,5 +1,4 @@
 import 'package:NoteApp/constants.dart';
-import 'package:NoteApp/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:NoteApp/models/note_model.dart';
 import 'package:NoteApp/simple_bloc_observer.dart';
 import 'package:NoteApp/views/notes_view.dart';
