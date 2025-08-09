@@ -1,10 +1,12 @@
+import 'package:NoteApp/models/note_model.dart';
 import 'package:NoteApp/views/edit_note_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
+  const NoteItem({super.key, required this.note});
 
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -21,14 +23,15 @@ class NoteItem extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.only(bottom: 16, top: 24, left: 16, right: 8),
         decoration: BoxDecoration(
-          color: const Color(0xFFFFEFD7),
+          color: Color(note.color),
+          // لو عايز استقبل اللون هحط جوا قوسين الكولور بدل كود اللون هيبقى note.color
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Flutter Tips',
+            Text(
+              note.title,
               style: TextStyle(
                 color: Color(0xFF2B2525),
                 fontSize: 18,
@@ -40,7 +43,7 @@ class NoteItem extends StatelessWidget {
               padding: const EdgeInsets.only(top: 8, bottom: 8, right: 9),
               child: Text(
                 maxLines: 3,
-                'Lorem ipsum dolor sit am consectetur Lorem ipsum dolor sit am consectetur  ',
+                note.subTitle,
                 style: TextStyle(
                   color: Color(0xFF2A2525),
                   fontSize: 16,
@@ -53,7 +56,7 @@ class NoteItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'May21 ,2025',
+                  note.date,
                   style: TextStyle(
                     color: Color(0xFF2A2525),
                     fontSize: 14,
