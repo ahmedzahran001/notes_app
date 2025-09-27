@@ -1,6 +1,7 @@
 import 'package:NoteApp/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:NoteApp/models/note_model.dart';
-import 'package:NoteApp/views/widgets/custom_button.dart';
+import 'package:NoteApp/views/widgets/add_button.dart';
+import 'package:NoteApp/views/widgets/colors_list_view.dart';
 import 'package:NoteApp/views/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,7 +46,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             },
             hint: 'Title...',
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 16),
           CustomTextField(
             onSaved: (value) {
               subTitle = value;
@@ -53,11 +54,14 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hint: 'Content...',
             maxLines: 7,
           ),
-          const SizedBox(height: 32),
+          const SizedBox(height: 16),
+          const ColorsListView(),
+          const SizedBox(height: 16),
+
           // Spacer(),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
-              return CustomButton(
+              return AddButton(
                 isLoading: state is AddNoteLoading ? true : false,
                 onTap: () {
                   if (formKey.currentState!.validate()) {
@@ -80,7 +84,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             },
           ),
           // Spacer(),
-          const SizedBox(height: 32)
+          const SizedBox(height: 16)
         ],
       ),
     );
