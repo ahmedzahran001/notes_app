@@ -9,41 +9,38 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubit(),
-      child: Scaffold(
-        body: const NotesViewBody(),
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.only(right: 8, bottom: 13),
-          child: SizedBox(
-            height: 58,
-            width: 58,
-            child: FloatingActionButton(
-              onPressed: () {
-                showModalBottomSheet(
-                  isScrollControlled: true,
-                  backgroundColor: Color(0xff141414),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadiusGeometry.circular(20),
-                    // side: BorderSide(
-                    //   width: 1,
-                    //   color: const Color(0xFFFFEED6),
-                    // ),
-                  ),
-                  context: context,
-                  builder: (context) {
-                    return const AddNoteBottomSheet();
-                  },
-                );
-              },
-              backgroundColor: const Color(0xFFFFFFFF),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadiusGeometry.circular(80)),
-              child: const Icon(
-                Icons.add,
-                color: Colors.black,
-                size: 40,
-              ),
+    return Scaffold(
+      body: const NotesViewBody(),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(right: 8, bottom: 13),
+        child: SizedBox(
+          height: 58,
+          width: 58,
+          child: FloatingActionButton(
+            onPressed: () {
+              showModalBottomSheet(
+                isScrollControlled: true,
+                backgroundColor: Color(0xff141414),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadiusGeometry.circular(20),
+                  // side: BorderSide(
+                  //   width: 1,
+                  //   color: const Color(0xFFFFEED6),
+                  // ),
+                ),
+                context: context,
+                builder: (context) {
+                  return const AddNoteBottomSheet();
+                },
+              );
+            },
+            backgroundColor: const Color(0xFFFFFFFF),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadiusGeometry.circular(80)),
+            child: const Icon(
+              Icons.add,
+              color: Colors.black,
+              size: 40,
             ),
           ),
         ),
