@@ -33,7 +33,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             height: 8,
             clipBehavior: Clip.antiAlias,
             decoration: ShapeDecoration(
-              color: const Color(0xFFFFEFD7),
+              color:  Color(0xFFFFEFD7),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
@@ -55,7 +55,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             maxLines: 7,
           ),
           const SizedBox(height: 16),
-          const ColorsListView(),
+          ColorsListView(),
           const SizedBox(height: 16),
 
           // Spacer(),
@@ -73,7 +73,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                         title: title!,
                         subTitle: subTitle!,
                         date: formatedCurrentDate,
-                        color: const Color(0xFFFFEFD7).toARGB32());
+                        color:  Color(0xFFFFEFD7).toARGB32());
                     BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
                   } else {
                     autovalidateMode = AutovalidateMode.always;
