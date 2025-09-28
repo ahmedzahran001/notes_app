@@ -18,6 +18,41 @@ class EditNoteViewBody extends StatefulWidget {
 
 class _EditNoteViewBodyState extends State<EditNoteViewBody> {
   String? title, content;
+  void snackStatus(
+    BuildContext context, {
+    required String oldTitle,
+    required String oldContent,
+    required String newTitle,
+    required String newContent,
+  }) {
+    if (oldTitle != newTitle && oldContent != newContent) {
+      // both changed
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+            content: Text('The note title and content have been edited'),
+            backgroundColor: Colors.green),
+      );
+    } else if (oldTitle != newTitle && oldContent == newContent) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+            content: Text('The note title only has been edited'),
+            backgroundColor: Colors.green),
+      );
+    } else if (oldTitle == newTitle && oldContent != newContent) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+            content: Text('The note content only has been edited'),
+            backgroundColor: Colors.green),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+            content: Text('The note has not been edited'),
+            backgroundColor: Colors.red),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -27,10 +62,27 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
           const SizedBox(height: 48),
           CustomAppBar(
             onPressed: () {
-              widget.note.title = title ?? widget.note.title;
-              // if the new title = null .. use your title instead
-              widget.note.subTitle = content ?? widget.note.subTitle;
+              // القيم القديمة
+              final oldTitle = widget.note.title;
+              final oldContent = widget.note.subTitle;
+
+              //  (لو المستخدم ما كتبش حاجة نستخدم القديم)
+              final newTitle = title ?? widget.note.title;
+              final newContent = content ?? widget.note.subTitle;
+
+              // نعرض الـ snackbar بناءً على الفرق
+              snackStatus(context,
+                  oldTitle: oldTitle,
+                  oldContent: oldContent,
+                  newTitle: newTitle,
+                  newContent: newContent);
+
+              // بعد كده نحفظ القيم
+              widget.note.title = newTitle;
+              widget.note.subTitle = newContent;
               widget.note.save();
+
+              // حدّث قائمة النوتس وارجع
               BlocProvider.of<NotesCubit>(context).fetchAllNotes();
               Navigator.pop(context);
             },
@@ -61,4 +113,3 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
     );
   }
 }
-
